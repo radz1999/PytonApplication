@@ -1,0 +1,85 @@
+@import url(https://fonts.googleapis.com/css?family=Open+Sans:400,700);
+body {
+  background: url(https://pbg-images.s3.amazonaws.com/faydali-bilgiler/production/468/l-isik-universitesi-taban-puanlari-20150624.jpg) no-repeat center;
+  background-size: cover;
+    font-family: 'Handlee', cursive;
+  font-size:30px;
+  text-transform: uppercase;
+  text-decoration-style: solid;
+  text-align:center;
+}
+
+.login {
+
+  width: 400px;
+  margin: 16px auto;
+  font-size: 16px;
+}
+
+/* Reset top and bottom margins from certain elements */
+.login-header
+.login p {
+  margin-top: 0;
+  margin-bottom: 0;
+}
+
+.login-header {
+  background: url(https://www.fmv.edu.tr/i/content/35_2_iu_logo-mavi.jpg) no-repeat center;
+  background-size: cover;
+  height:70px;
+  margin-bottom:2px;
+  border-radius:5px;
+}
+
+.login-container {
+  border-radius:5px;
+  background: #ebebeb;
+  padding: 10px;
+}
+
+/* Every row inside .login-container is defined with p tags */
+.login p {
+  border-radius:5px;
+  padding: 12px;
+}
+
+.login input {
+  border-radius:5px;
+  box-sizing: border-box;
+  display: block;
+  width: 100%;
+  border: 1px solid;
+  padding: 16px;
+  outline: 0;
+    font-family: 'Handlee', cursive;
+  font-size: 0.95em;
+}
+
+.login input[type="email"],
+.login input[type="password"] {
+  background: #fff;
+  border-color: #bbb;
+  color: #555;
+}
+
+/* Text fields' focus effect */
+.login input[type="email"]:focus,
+.login input[type="password"]:focus {
+  border-color: #888;
+}
+
+.login input[type="submit"] {
+  background: #28d;
+  border-color: transparent;
+  color: #fff;
+  cursor: pointer;
+}
+
+.login input[type="submit"]:hover {
+  background: #17c;
+}
+
+/* Buttons' focus effect */
+.login input[type="submit"]:focus {
+  border-color: #05a;
+}

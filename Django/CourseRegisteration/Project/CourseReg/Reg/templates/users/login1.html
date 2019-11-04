@@ -1,0 +1,27 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<link rel="stylesheet" href="{% static 'css/login.css' %}">
+<div class="page">
+  <h1>CAMPUS ONLINE</h1>
+<div class="login">
+  <div class="login-triangle"></div>
+
+<h2 class="login-header"></h2>
+    <div class="login-container">
+    <h1>YOU HAVE ENTERED WRONG FIELD!</h1>
+  <form class="login-container" action="{% url 'login_view'%}" method="POST" class="post-form">
+      {% csrf_token %}
+      {{ form.as_p }}
+      {% if request.GET.next %}
+        <input type="hidden" name="next" value="{{ request.GET.next }}">
+        {% endif %}
+      <p><input type="submit" value="Login" class="save btn btn-default"></p>
+  </form>
+
+       <a href="/register">Register</a></p>
+        </div>
+
+</div>
+  </div>
+<!-- THIS PART IS FOR ONLY ERROR PAGE THAT SAYS WRONG INPUT-->

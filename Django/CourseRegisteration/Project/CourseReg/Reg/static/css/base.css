@@ -1,0 +1,82 @@
+h1 a, h2 a {
+    color: #447e9b;
+      font-family: 'Handlee', cursive;
+}
+
+body{
+    padding-left: 15px;
+    font-family: 'Handlee', cursive;
+
+}
+
+.page-header{
+    background-color: #447e9b;
+    margin-top: 0;
+    padding: 20px 20px 20px 20px;
+}
+
+.page-header h1, .page-header h1 a, .page-header h1 a:visited, .page-header h1 a:active{
+    color: #ffffff;
+    font-size: 36pt;
+    text-decoration: none;
+}
+
+.course{
+    margin-bottom: 70px;
+}
+
+
+ul:hover{
+    color:#ffffff;
+
+}
+
+#nav {
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+  overflow: hidden;
+  background-color: #3c3c3c;
+}
+
+#nav li {
+
+  float: left;
+    max-width: 200px;
+}
+
+#nav li a {
+  display: block;
+  color: white;
+  text-align: center;
+  padding: 14px 16px;
+  text-decoration: none;
+}
+
+#nav li a:hover {
+  background-color: #111;
+}
+
+li p{
+    color: #d58512;
+}
+
+
+h2 a:hover{
+    color:#90E12D;
+
+
+
+}
+.glyphicon-plus{
+    font-size:50px;
+}
+.gi-2x{font-size: 2em;}
+.gi-3x{font-size: 3em;}
+.gi-4x{font-size: 4em;}
+.gi-5x{font-size: 5em;}
+
+
+
+
+

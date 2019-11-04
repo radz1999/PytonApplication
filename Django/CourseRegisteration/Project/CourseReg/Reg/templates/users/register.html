@@ -1,0 +1,17 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<link rel="stylesheet" href="{% static 'css/login.css' %}">
+<div class="page">
+  <h1>CAMPUS ONLINE</h1>
+<div class="login">
+  <div class="login-triangle"></div>
+<h2 class="login-header"></h2>
+  <form class="login-container" method="POST" class="post-form">
+       {% csrf_token %}
+       {{ form.as_p }}
+    <p><input type="submit" value="Register in" class="save btn btn-default"></p>
+  </form>
+
+</div>
+  </div>

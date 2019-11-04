@@ -1,0 +1,476 @@
+{% extends 'users/base.html' %}
+{% block content %}
+    <style>
+        /* Center the loader */
+        body {
+            font-family: 'Handlee', cursive;
+        }
+
+        .blue {
+            background: #3498db;
+        }
+
+        .purple {
+            background: #9b59b6;
+        }
+
+        .navy {
+            background: #34495e;
+        }
+
+        .green {
+            background: #2ecc71;
+        }
+
+        .red {
+            background: #e74c3c;
+        }
+
+        .orange {
+            background: #f39c12;
+        }
+
+        #loaderr {
+            position: absolute;
+            left: 50%;
+            top: 50%;
+            z-index: 1;
+            width: 150px;
+            height: 150px;
+            margin: -75px 0 0 -75px;
+            border: 16px solid #f3f3f3;
+            border-radius: 50%;
+            border-top: 16px solid #3498db;
+            width: 120px;
+            height: 120px;
+            -webkit-animation: spin 2s linear infinite;
+            animation: spin 2s linear infinite;
+        }
+
+        @-webkit-keyframes spin {
+            0% {
+                -webkit-transform: rotate(0deg);
+            }
+            100% {
+                -webkit-transform: rotate(360deg);
+            }
+        }
+
+        @keyframes spin {
+            0% {
+                transform: rotate(0deg);
+            }
+            100% {
+                transform: rotate(360deg);
+            }
+        }
+
+        /* Add animation to "page content" */
+        .animate-bottom {
+            position: relative;
+            -webkit-animation-name: animatebottom;
+            -webkit-animation-duration: 1s;
+            animation-name: animatebottom;
+            animation-duration: 1s
+        }
+
+        @-webkit-keyframes animatebottom {
+            from {
+                bottom: -100px;
+                opacity: 0
+            }
+            to {
+                bottom: 0px;
+                opacity: 1
+            }
+        }
+
+        @keyframes animatebottom {
+            from {
+                bottom: -100px;
+                opacity: 0
+            }
+            to {
+                bottom: 0;
+                opacity: 1
+            }
+        }
+
+        #myDiv {
+            display: none;
+            text-align: center;
+        }
+
+        .cell {
+            position: relative;
+            border-top: 1px solid gray;
+            border-left: 1px solid gray;
+            min-width: 100px;
+            min-height: 150px;
+            flex: 1;
+        }
+    </style>
+    <title>Curriculum PAGE</title>
+    <p id="DENEME">DENEME</p>
+
+    <body onload="myFunction(),slotFinder()" style="margin:0;">
+    <p id="watch"></p>
+    <div id="loaderr"></div>
+    <div style="display:none;" id="myDiv" class="animate-bottom">
+        <h1 id="demo1" style="text-align: center;color:#5b80b2 "></h1>
+        <table border="2" cellspacing="3" align="center">
+            <tr>
+                <td align="center">
+                <td>9:00-10:00
+                <td>10:00-11:00
+                <td>11:00-12:00
+                <td>12:00-13:00
+                <td>13:00-14:00
+                <td>14:00-15:00
+                <td>15:00-16:00
+                <td>16:00-17:00
+            </tr>
+            <tr>
+                <td align="center">MONDAY
+                <td id="d0c0" align="center"><br>
+                <td id="d0c1" align="center">&nbsp;<br>
+                <td id="d0c2" align="center">&nbsp;<br>
+                <td id="d0c3" align="center">&nbsp<br>
+                <td id="d0c4" align="center">&nbsp;<br>
+                <td id="d0c5" align="center">&nbsp;<br>
+                <td id="d0c6" align="center">&nbsp;<br>
+                <td id="d0c7" align="center">&nbsp;<br>
+            </tr>
+            <tr>
+                <td align="center">TUESDAY
+                <td id="d1c0" align="center">&nbsp;<br>
+                <td id="d1c1" align="center">&nbsp;<br>
+                <td id="d1c2" align="center">&nbsp;<br>
+                <td id="d1c3" align="center">&nbsp;<br>
+                <td id="d1c4" align="center">&nbsp;<br>
+                <td id="d1c5" align="center">&nbsp;<br>
+                <td id="d1c6" align="center">&nbsp;<br>
+                <td id="d1c7" align="center">&nbsp;<br>
+            </tr>
+            <tr>
+                <td align="center">WEDNESDAY
+                <td id="d2c0" align="center">&nbsp;<br>
+                <td id="d2c1" align="center">&nbsp;<br>
+                <td id="d2c2" align="center">&nbsp;<br>
+                <td id="d2c3" align="center">&nbsp;<br>
+                <td id="d2c4" align="center">&nbsp;<br>
+                <td id="d2c5" align="center">&nbsp;<br>
+                <td id="d2c6" align="center">&nbsp;<br>
+                <td id="d2c7" align="center">&nbsp;<br>
+            </tr>
+            <tr>
+                <td align="center">THURSDAY
+                <td id="d3c0" align="center">&nbsp;<br>
+                <td id="d3c1" align="center">&nbsp;<br>
+                <td id="d3c2" align="center">&nbsp;<br>
+                <td id="d3c3" align="center">&nbsp;<br>
+                <td id="d3c4" align="center">&nbsp;<br>
+                <td id="d3c5" align="center">&nbsp;<br>
+                <td id="d3c6" align="center">&nbsp;<br>
+                <td id="d3c7" align="center">&nbsp;<br>
+            </tr>
+            <tr>
+                <td align="center">FRIDAY
+                <td id="d4c0" align="center">&nbsp;<br>
+                <td id="d4c1" align="center">&nbsp;<br>
+                <td id="d4c2" align="center">&nbsp;<br>
+                <td id="d4c3" align="center">&nbsp;<br>
+                <td id="d4c4" align="center">&nbsp;<br>
+                <td id="d4c5" align="center">&nbsp;<br>
+                <td id="d4c6" align="center">&nbsp;<br>
+                <td id="d4c7" align="center">&nbsp;<br>
+            </tr>
+        </table>
+        <h1>ALL COURSES BELOW</h1>
+        <p>THIS IS THE SET OF ALL GETTED COURSES:<br> {{ finCourse }} </p>
+        <hr style="border-top:2px solid cornflowerblue;">
+
+        {% for listC in finCourse %} <!-- IDEA IS QUERYSET IN QUERYSET SO WE NEED TO GET EVERY ITEM WHICH IS QUERYSET -->
+            <p>This is the Query Set From Django : {{ listC }}</p>
+            {% for listA in listC %}<!-- SO THE GETTIN ITEM FROM QUERYSET -->
+
+                <div id="infoCourse" class="post" style="align-content: center;"> <!-- INSERT FROM DJANGO -->
+                    NAME:<h1 id="NAME" style="text-align: center; color: #3498db"> {{ listA.course_name }}</h1>
+                    FROM:<h2 id="FROM">{{ listA.hour }}</h2>
+                    TO:<h2 id="TO"> {{ listA.to }}</h2>
+                    DAY:<p id="DAY"> {{ listA.day }}</p>
+                    SECTION NO:<p id="SECTIONNO">{{ listA.section }} </p>
+                    <hr style="border-top:2px solid cornflowerblue;">
+                </div>
+
+            {% endfor %}
+        {% endfor %}
+    </div>
+    <script>
+        var myVar1 = setInterval(myTimer, 1000);
+        function myTimer() {
+            var d = new Date();
+            document.getElementById("demo1").innerHTML = d.toLocaleTimeString();
+        }
+        var myVar;
+        var a = document.getElementById("DENEME");
+        a.innerHTML = "JS WORKING...";
+
+        document.getElementById("infoCourse").onload = function () {
+            slotFinder()
+        };
+
+        function slotFinder() { //I COULD HAVE DONE THIS PART STATICLY BUT I PREFER DYNAMIC USAGE
+            a.innerHTML = "You Are In !";
+            var COURSENAME = document.getElementById("NAME").innerText;//GETS THE DATA FROM DJANGO DATA
+            var FROM = document.getElementById("FROM").innerText;
+            var TO = document.getElementById("TO").innerText;
+            var DAY = document.getElementById("DAY").innerText;
+
+            if (DAY == 0) {
+
+                if ((FROM == 0) && (FROM != TO)) {
+                    document.getElementById("d0c0").style.background = "#3498db";
+                    FROM++;
+                }
+//            if(document.getElementById("d0c0").innerText==null){
+//              document.getElementById("d0c0").style.background = "Red"; (Conflicts Are Painted Red).
+//                 (THIS PART IS ON COMMENT BECAUSE REPEATING JS ON CONTEND CREATION DOES NOT WORK WELL.)
+// }
+            if ((FROM == 1) && (FROM != TO)) {
+               a.innerHTML = "System Connected!";
+                    document.getElementById("d0c1").innerHTML = COURSENAME;
+                    FROM++;
+            } else {
+                document.getElementById("d0c1").innerHTML = COURSENAME;
+                document.getElementById("d0c1").style.background = "red";
+                FROM++;
+            }
+
+            if ((FROM == 2) && (FROM != TO)) {
+                document.getElementById("d0c2").innerHTML = COURSENAME;
+                FROM++;
+            }
+
+
+            if ((FROM == 3) && (FROM != TO)) {
+                document.getElementById("d0c3").innerHTML = COURSENAME;
+                FROM++;
+            }
+            if ((FROM == 4) && (FROM != TO)) {
+                document.getElementById("d0c4").innerHTML = COURSENAME;
+                FROM++;
+            }
+            if ((FROM == 5) && (FROM != TO)) {
+                document.getElementById("d0c5").innerHTML = COURSENAME;
+                FROM++;
+            }
+            if ((FROM == 6) && (FROM != TO)) {
+                document.getElementById("d0c6").innerHTML = COURSENAME;
+                FROM++;
+            }
+
+            if ((FROM == 7) && (FROM != TO)) {
+                document.getElementById("d0c7").innerHTML = COURSENAME;
+                FROM++;
+            }
+
+            }
+
+            else if (DAY == 1) {
+        a.innerHTML = "System connected.";
+                if ((FROM == 0) && (FROM != TO)) {
+
+                    document.getElementById("d1c0").innerHTML = COURSENAME;
+                    FROM++;
+                }
+
+            }
+                if ((FROM == 1) && (FROM != TO)) {
+                    document.getElementById("d1c1").innerHTML = COURSENAME;
+                    FROM++;
+                }
+
+
+                if ((FROM == 2) && (FROM != TO)) {
+                    document.getElementById("d1c2").innerHTML = COURSENAME;
+                    FROM++;
+                }
+
+
+                if ((FROM == 3) && (FROM != TO)) {
+                    document.getElementById("d1c3").innerHTML = COURSENAME;
+                    FROM++;
+                }
+
+                if ((FROM == 4) && (FROM != TO)) {
+                    a.innerHTML = "System Connected!";
+                    document.getElementById("d1c4").innerHTML = COURSENAME;
+                    FROM++;
+                }
+                if ((FROM == 5) && (FROM != TO)) {
+                    document.getElementById("d1c5").innerHTML = COURSENAME;
+                    FROM++;
+                }
+
+
+                if ((FROM == 6) && (FROM != TO)) {
+                    document.getElementById("d1c6").innerHTML = COURSENAME;
+                    FROM++;
+                }
+
+                if (FROM == 7 && (FROM != TO)) {
+                    document.getElementById("d1c7").innerHTML = COURSENAME;
+                    FROM++;
+                }
+
+             if (DAY == 2) {
+                if ((FROM == 0) && (FROM != TO)) {
+                    document.getElementById("d2c0").innerHTML = COURSENAME;
+                    FROM++;
+                }
+
+                if ((FROM == 1) && (FROM != TO)) {
+                    document.getElementById("d2c1").innerHTML = COURSENAME;
+                    FROM++;
+                }
+
+                if ((FROM == 2) && (FROM != TO)) {
+                    document.getElementById("d2c2").innerHTML = COURSENAME;
+                    FROM++;
+                }
+
+                if ((FROM == 3) && (FROM != TO)) {
+                    document.getElementById("d2c3").innerHTML = COURSENAME;
+                    FROM++;
+                }
+
+                if ((FROM == 4) && (FROM != TO)) {
+                    document.getElementById("d2c4").innerHTML = COURSENAME;
+                    FROM++;
+                }
+
+                if ((FROM == 5) && (FROM != TO)) {
+                    document.getElementById("d2c5").innerHTML = COURSENAME;
+                    FROM++;
+                }
+
+                if ((FROM == 6) && (FROM != TO)) {
+                    document.getElementById("d2c6").innerHTML = COURSENAME;
+                    FROM++;
+                }
+
+                if ((FROM == 7) && (FROM != TO)) {
+                    document.getElementById("d2c7").innerHTML = COURSENAME;
+                    FROM++;
+                }
+
+
+            }
+              else if (DAY == 3) {
+                if ((FROM == 0) && (FROM != TO)) {
+                    document.getElementById("d3c0").innerHTML = COURSENAME;
+                    FROM++;
+                }
+
+                if ((FROM == 1) && (FROM != TO)) {
+                    document.getElementById("d3c1").innerHTML = COURSENAME;
+                    FROM++;
+                }
+                if ((FROM == 2) && (FROM != TO)) {
+                    document.getElementById("d3c2").innerHTML = COURSENAME;
+                    FROM++;
+                }
+
+                if ((FROM == 3) && (FROM != TO)) {
+                    document.getElementById("d3c3").innerHTML = COURSENAME;
+                    FROM++;
+                }
+
+                if ((FROM == 4) && (FROM != TO)) {
+                    document.getElementById("d3c4").innerHTML = COURSENAME;
+                    FROM++;
+                }
+
+                if ((FROM == 5) && (FROM != TO)) {
+                    document.getElementById("d3c5").innerHTML = COURSENAME;
+                    FROM++;
+                }
+
+                if ((FROM == 6) && (FROM != TO)) {
+                    document.getElementById("d3c6").innerHTML = COURSENAME;
+                    FROM++;
+                }
+
+                if ((FROM == 7) && (FROM != TO)) {
+                    document.getElementById("d3c7").innerHTML = COURSENAME;
+                    FROM++;
+                }
+
+
+            }
+            else if (DAY == 4) {
+                if ((FROM == 0) && (FROM != TO)) {
+                    document.getElementById("d4c0").innerHTML = COURSENAME;
+                    FROM++;
+                }
+
+                if ((FROM == 1) && (FROM != TO)) {
+                    document.getElementById("d4c1").innerHTML = COURSENAME;
+                    FROM++;
+                }
+
+                if ((FROM == 2) && (FROM != TO)) {
+                    document.getElementById("d4c2").innerHTML = COURSENAME;
+                    FROM++;
+                }
+
+                if ((FROM == 3) && (FROM != TO)) {
+                    document.getElementById("d4c3").innerHTML = COURSENAME;
+                    FROM++;
+                }
+
+                if ((FROM == 4) && (FROM != TO)) {
+                    document.getElementById("d4c4").innerHTML = COURSENAME;
+                    FROM++;
+                }
+
+                if ((FROM == 5) && (FROM != TO)) {
+                    a.innerText = "IKINCI DERS GORULDU";
+                    document.getElementById("d4c5").innerHTML = COURSENAME;
+                    FROM++;
+                }
+
+                if ((FROM == 6) && (FROM != TO)) {
+                    document.getElementById("d4c6").innerHTML = COURSENAME;
+                    FROM++;
+                }
+
+                if ((FROM == 7) && (FROM != TO)) {
+                    document.getElementById("d4c7").innerHTML = COURSENAME;
+                    FROM++;
+                }
+
+
+            }
+
+        }
+
+        document.getElementById("infoCourse").onload = slotFinder();// ONLOAD TRIES TO REPEAT JS TO FILL CURRICULUM DYNAMICLY.
+
+        function myFunction() {// THIS IS FOR CLOCK
+            myVar = setTimeout(showPage, 2500);
+        }
+
+        function showPage() {
+            document.getElementById("loaderr").style.display = "none";
+            document.getElementById("myDiv").style.display = "block";
+        }
+
+
+    </script>
+
+
+    </body>
+{% endblock %}
+

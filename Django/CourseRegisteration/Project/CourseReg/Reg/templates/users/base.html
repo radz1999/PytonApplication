@@ -1,0 +1,59 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <link href="//fonts.googleapis.com/css?family=Lobster&subset=latin,latin-ext" rel="stylesheet" type="text/css">
+    <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css">
+    <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap-theme.min.css">
+    <link rel="stylesheet" href="{% static 'css/base.css' %}">
+    <link href="//fonts.googleapis.com/css?family=Lobster&subset=latin,latin-ext" rel="stylesheet" type="text/css">
+    <meta charset="UTF-8">
+
+</head>
+
+<body>
+    <div class="page-header">
+    <h1><a href="/course">My Courses</a></h1>
+        <ul id="nav">
+            <li><a href="/course" style="color:Black;"><button>Home</button></a></li>
+
+            <li><a><form action="{% url 'courseTaken' userNo="216CS2017" %}" method="POST">
+                {% csrf_token %}
+                <button type="submit" style="color:black;">Courses</button>
+                {% if request.GET.next %}
+                <input type="hidden" name="userNo" value="{{ request.GET.userNo }}">
+                {% endif %}
+                </form>
+            </a></li>
+
+            <li><a><form action="{% url 'curriculum' userNo="216CS2017" %}" method="POST">
+                {% csrf_token %}
+                <button type="submit" style="color:black;">Curriculum</button>
+                {% if request.GET.next %}
+                <input type="hidden" name="userNo" value="{{ request.GET.userNo }}">
+                {% endif %}
+                </form>
+            </a></li>
+
+
+            <li><a><form action="{% url 'logout_view' %}" method="POST">
+                {% csrf_token %}
+                <button type="submit" style="color:black;">Logout</button>
+                </form></a></li>
+
+                <li><a href="/">Login</a></li>
+
+        </ul>
+
+</nav>
+    </div>
+
+     <div>
+            <a href="{% url 'course_new' %}" class="top-menu" style="margin:50px 0px 0px 50px;"><span class="glyphicon glyphicon-plus gi-5x"></span></a>
+            <h3 style="margin-top:-5px;">Course Add</h3>
+     </div>
+
+    {% block content %}
+    {% endblock %}
+</body>
+</html>

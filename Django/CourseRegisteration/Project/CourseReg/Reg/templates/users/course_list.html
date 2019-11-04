@@ -1,0 +1,23 @@
+{% extends 'users/base.html' %}
+{% block content %}
+    <title>MAIN PAGE</title>
+     {{request.GET.stuNo }}
+
+    {% for course in courses %}
+    <div class="post">
+<h2><a href="{% url 'course_detail' pk=course.pk %}" style="text-decoration: none; margin-left:40%">{{course.course_name}}📖</a></h2>
+ <div style="border:solid 2px LightGray;border-radius:15px;">
+    <ul style="width:30%; float:left;margin-left:15%;">
+      <li><p>Course Place:{{course.place}}</p></li>
+      <li><p>Course Time Slot:{{course.section}}</p></li>
+   </ul>
+   <ul style="width:50%; float:left;">
+      <li><p>{{course.syllabus|linebreaksbr }}</p></li>
+      <li><p>{{course.instructor|linebreaksbr }}</p></li>
+       <li><p>{{ course.credit|linebreaksbr }}</p></li>
+   </ul>
+    </div>
+
+    </div>
+    {% endfor %}
+{% endblock %}

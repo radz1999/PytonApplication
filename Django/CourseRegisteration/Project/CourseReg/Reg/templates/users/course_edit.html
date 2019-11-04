@@ -1,0 +1,12 @@
+{% extends 'users/base.html' %}
+
+{% block content %}
+<title>COURSE ADD PAGE</title>
+    <h2>New Course</h2>
+    <form method="POST" class="post-form">
+       {% csrf_token %}
+        {{ form.as_p }}
+
+        <button type="submit" class="save btn btn-default">Save</button>
+    </form>
+{% endblock %}

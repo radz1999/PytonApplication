@@ -1,0 +1,24 @@
+{% extends 'users/base.html' %}
+
+
+
+<script></script>
+<div style="display: grid">
+{% block content %}
+    <a href="{% url 'courseSelect' userNo='216CS2017' %}" class="top-menu" style="margin:50px 0px 0px 50px;"><span class="glyphicon glyphicon-plus gi-5x"></span></a>
+            <h3 style="margin-top:-5px;">Course Selected </h3>
+     </div>
+    <title>MAIN PAGE</title>
+    <ul>
+    <H1 style="text-align: center;color: gray">🎓Course Names Below🎓</H1>
+    {% for courses in course %}
+
+        <div class="post">
+    <h2><a href="{% url 'course_detail' pk=courses.CourseName %}" style="text-decoration: none; margin-left:40%">{{courses.CourseName}}</a></h2>
+    </div>
+
+    {% endfor %}
+</ul>
+
+
+{% endblock %}

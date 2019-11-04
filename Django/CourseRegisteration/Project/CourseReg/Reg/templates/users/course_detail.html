@@ -1,0 +1,15 @@
+{% extends 'users/base.html' %}
+
+{% block content %}
+    <div class="post" style="align-content: center;">
+<title>COURSE EDIT PAGE</title>
+          <h1 style="text-align: center;">{{ course.course_name }} {% if user.is_authenticated %}
+        <a style="margin-left:40px;" class="btn btn-default" href="{% url 'course_edit' pk=course.pk %}"><span class="glyphicon glyphicon-pencil"></span></a>
+        {% endif %}</h1>
+
+        <h2> Instructor : {{ course.instructor }}</h2>
+        <p>{{ course.syllabus|linebreaksbr }}</p>
+        <p> Course Time Slot : {{ course.section }}</p>
+
+    </div>
+{% endblock %}

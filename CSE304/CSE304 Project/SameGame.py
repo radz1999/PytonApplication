@@ -1,6 +1,5 @@
 import random
 # import numpy as np Did not worked for bitwise,numpy used for arrays,predefined library
-
 class SameGame:
 
     def __init__(self):
